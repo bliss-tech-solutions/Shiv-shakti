@@ -1,10 +1,42 @@
 /* WhyChooseUs.css - Fixed container, spacing & responsive */
 
+.why-section-root {
+  position: relative;
+  overflow: hidden;
+}
+
+.why-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.why-bg-img {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  opacity: 0.05;
+}
+
+.why-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, white, transparent, white);
+}
+
 .why-section {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 7rem 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .why-grid {

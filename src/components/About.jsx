@@ -1,7 +1,9 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { FaAward, FaUsers, FaCog, FaMapMarkedAlt } from 'react-icons/fa'
 import { scrollToSection } from '../utils/scrollToSection'
 import './About.css'
+
+const aboutImage = '/Images/Cage Lifting start.jpeg'
 
 const features = [
   {
@@ -27,13 +29,41 @@ const features = [
 ]
 
 const About = () => {
+  const { scrollYProgress } = useScroll()
+  const y = useTransform(scrollYProgress, [0, 1], [0, -100])
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2])
+
   return (
     <section id="about" className="section-wrapper bg-white">
       <div className="about-section container">
         <div className="about-grid">
           <motion.div
+            className="about-image-container"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="about-image-wrapper">
+              <motion.img 
+                src={aboutImage} 
+                alt="Construction Site" 
+                className="about-img"
+                style={{ scale }}
+              />
+              <div className="about-image-overlay"></div>
+              <motion.div 
+                className="experience-badge"
+                style={{ y }}
+              >
+                <span className="years">15+</span>
+                <span className="text">Years of Excellence</span>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          <motion.div
             className="about-content"
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
@@ -62,31 +92,32 @@ const About = () => {
               </a>
             </div>
           </motion.div>
-
-          <motion.div
-            className="about-features"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                className="feature-card glass-card"
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="feature-icon-box">
-                  {feature.icon}
-                </div>
-                <div className="feature-info">
-                  <h3>{feature.title}</h3>
-                  <p>{feature.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
+
+        <motion.div
+          className="about-features"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+        >
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              className="feature-card glass-card"
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="feature-icon-box">
+                {feature.icon}
+              </div>
+              <div className="feature-info">
+                <h3>{feature.title}</h3>
+                <p>{feature.description}</p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )

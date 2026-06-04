@@ -8,27 +8,27 @@ const contactInfo = [
     icon: <FaPhone />,
     label: 'Phone',
     value: '+91 99252 45018',
-    color: '#ff6b35'
+    color: '#dc2626' // Red
   },
   {
     icon: <FaPhone />,
     label: 'Phone',
     value: '+91 70411 10599',
-    color: '#ff6b35'
+    color: '#dc2626' // Red
   },
   {
     icon: <FaEnvelope />,
     label: 'Email',
     value: 'info@shivshakti.in',
-    color: '#ffa500'
+    color: '#dc2626' // Red
   },
   {
     icon: <FaMapMarkerAlt />,
     label: 'Headquarters',
-    value: 'Pan India Operations — 15 States, 35+ Cities',
-    color: '#ff6b35'
+    value: '401, Super Plaza Complex, Near Sandesh Press, Vastrapur, Ahmedabad, Gujarat 380054, India',
+    color: '#b91c1c' // Dark Red
   }
-]
+];
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' })

@@ -128,8 +128,7 @@ const Footer = () => {
             rights reserved.
           </p>
           <div className="footer-legal">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+            <a href="https://www.blisssolution.in/" target="_blank" rel="noopener noreferrer">Design and Development by The Bliss Solutions</a>
           </div>
         </div>
       </div>

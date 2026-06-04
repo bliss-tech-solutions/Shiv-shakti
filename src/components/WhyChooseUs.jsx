@@ -1,8 +1,10 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import CountUp from 'react-countup'
 import { useInView } from 'react-intersection-observer'
 import { FaProjectDiagram, FaCity, FaUsers, FaRoad, FaCheckCircle } from 'react-icons/fa'
 import './WhyChooseUs.css'
+
+const whyImage = '/Images/Grabbing start panel.jpeg'
 
 const CountUpComponent = CountUp?.default || CountUp
 
@@ -23,8 +25,20 @@ const highlights = [
 ]
 
 const WhyChooseUs = () => {
+  const { scrollYProgress } = useScroll()
+  const y = useTransform(scrollYProgress, [0, 1], [0, 150])
+
   return (
-    <section id="why-us" className="section-wrapper bg-white">
+    <section id="why-us" className="section-wrapper bg-white why-section-root">
+      <div className="why-background">
+        <motion.img 
+          src={whyImage} 
+          alt="Background" 
+          className="why-bg-img" 
+          style={{ y }}
+        />
+        <div className="why-bg-overlay"></div>
+      </div>
       <div className="why-section container">
         <div className="why-grid">
           <motion.div

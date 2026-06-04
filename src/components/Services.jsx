@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import {
   FaBuilding, FaAnchor, FaLayerGroup, FaTruck,
   FaWater, FaHardHat, FaShieldAlt, FaTools, FaWrench, FaIndustry
@@ -82,6 +82,9 @@ const services = [
 ]
 
 const Services = () => {
+  const { scrollYProgress } = useScroll()
+  const y = useTransform(scrollYProgress, [0, 1], [0, -50])
+
   return (
     <section id="services" className="section-wrapper bg-light">
       <div className="services-section container">
@@ -90,6 +93,7 @@ const Services = () => {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
+        style={{ y }}
       >
         <span className="section-badge">Our Expertise</span>
         <h2 className="section-title">Specialized Services</h2>
