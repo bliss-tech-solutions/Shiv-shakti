@@ -4,10 +4,10 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
   FaLinkedin,
-  FaTwitter,
   FaFacebook,
   FaInstagram,
 } from "react-icons/fa";
+import { scrollToSection } from "../utils/scrollToSection";
 import "./Footer.css";
 
 const Footer = () => {
@@ -41,16 +41,19 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="footer-logo">
-              <img src="/logo.jpeg" alt="Shiv Shakti" className="footer-logo-img" />
-              <span className="logo-text">Shiv Shakti</span>
+              <img
+                src="/Logo.svg"
+                alt="Shiv Shakti"
+                className="footer-logo-img"
+              />
             </div>
             <p className="footer-desc">
-              Pioneering ground engineering solutions across India. 
-              ISO 9001:2015 certified reliability for your most 
-              ambitious infrastructure projects.
+              Pioneering ground engineering solutions across India. ISO
+              9001:2015 certified reliability for your most ambitious
+              infrastructure projects.
             </p>
             <div className="footer-socials">
-              {[FaLinkedin, FaTwitter, FaFacebook, FaInstagram].map((Icon, i) => (
+              {[FaLinkedin, FaFacebook, FaInstagram].map((Icon, i) => (
                 <a key={i} href="#" className="social-link">
                   <Icon />
                 </a>
@@ -64,7 +67,17 @@ const Footer = () => {
               <ul>
                 {quickLinks.map((link) => (
                   <li key={link}>
-                    <a href={`#${link.toLowerCase().replace(' ', '-')}`}>{link}</a>
+                    <a
+                      href={`#${link.toLowerCase().replace(" ", "-")}`}
+                      onClick={(e) =>
+                        scrollToSection(
+                          e,
+                          `#${link.toLowerCase().replace(" ", "-")}`,
+                        )
+                      }
+                    >
+                      {link}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -74,7 +87,12 @@ const Footer = () => {
               <ul>
                 {services.map((service) => (
                   <li key={service}>
-                    <a href="#services">{service}</a>
+                    <a
+                      href="#services"
+                      onClick={(e) => scrollToSection(e, "#services")}
+                    >
+                      {service}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -86,7 +104,11 @@ const Footer = () => {
             <div className="contact-items">
               <div className="contact-item">
                 <FaPhone className="contact-icon" />
-                <span>+91 98765 43210</span>
+                <span>+91 99252 45018</span>
+              </div>
+              <div className="contact-item">
+                <FaPhone className="contact-icon" />
+                <span>+91 70411 10599</span>
               </div>
               <div className="contact-item">
                 <FaEnvelope className="contact-icon" />
@@ -94,14 +116,17 @@ const Footer = () => {
               </div>
               <div className="contact-item">
                 <FaMapMarkerAlt className="contact-icon" />
-                <span>Ahmedabad, Gujarat, India</span>
+                <span>401, Super Plaza Complex, Near Sandesh Press, Vastrapur, Ahmedabad, Gujarat 380054, India</span>
               </div>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Shiv Shakti Construction. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Shiv Shakti Construction. All
+            rights reserved.
+          </p>
           <div className="footer-legal">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>

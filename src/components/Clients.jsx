@@ -2,18 +2,21 @@ import { motion } from 'framer-motion'
 import './Clients.css'
 
 const clients = [
-  { name: 'Larsen & Toubro', abbr: 'L&T', color: '#003087' },
-  { name: 'DLF', abbr: 'DLF', color: '#c8102e' },
-  { name: 'Delhi Metro', abbr: 'DMRC', color: '#0066cc' },
-  { name: 'Kolkata Metro', abbr: 'KMRC', color: '#006400' },
-  { name: 'Kochi Metro', abbr: 'KMRL', color: '#ff6600' },
-  { name: 'Kanpur Metro', abbr: 'UPMRC', color: '#8b0000' },
-  { name: 'Ahmedabad Metro', abbr: 'MEGA', color: '#1a237e' },
-  { name: 'Agra Metro', abbr: 'UPMRC', color: '#4a148c' },
-  { name: 'NTPC', abbr: 'NTPC', color: '#006633' },
-  { name: 'CCS Parliament', abbr: 'CCS', color: '#b8860b' },
-  { name: 'Daman Seafront', abbr: 'DSF', color: '#00838f' },
-  { name: 'Aadarshini Real Estate', abbr: 'ARE', color: '#e65100' }
+  { name: 'DRA', logo: '/clients/DRA.png' },
+  { name: 'Khyati Group', logo: '/clients/Khyati_Group_Logo_black.png' },
+  { name: 'Shanti Procon', logo: '/clients/Shanti_procon.png' },
+  { name: 'Sobha Developer', logo: '/clients/Sobha_developer.svg' },
+  { name: 'Chawda Group', logo: '/clients/chawda_group.png' },
+  { name: 'Gamara Group', logo: '/clients/gamara_group.webp' },
+  { name: 'Indraprasth', logo: '/clients/indraprasth.png' },
+  { name: 'Nitya Buildcon', logo: '/clients/nitya_buildcon.svg' },
+  { name: 'PSP Projects', logo: '/clients/psp.png' },
+  { name: 'Shivalik Group', logo: '/clients/shivalik_group.svg' },
+  { name: 'Shreenath Travels', logo: '/clients/shreenath_travels.jpg' },
+  { name: 'Shyam Group', logo: '/clients/shyam_group.svg' },
+  { name: 'Swara Group', logo: '/clients/swara_group.svg' },
+  { name: 'Swarnim Developer', logo: '/clients/swarnim_Developer.png' },
+  { name: 'Vivan Group', logo: '/clients/vivan_group.ico' }
 ]
 
 const Clients = () => {
@@ -30,7 +33,7 @@ const Clients = () => {
         <h2 className="section-title">Trusted By <span className="text-gradient">Industry Giants</span></h2>
         <p className="section-subtitle">
           We are proud to partner with India's leading infrastructure developers 
-           and government bodies.
+           and real estate groups.
         </p>
       </motion.div>
 
@@ -39,14 +42,14 @@ const Clients = () => {
           <motion.div
             key={i}
             className="client-card glass-card"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: (i % 6) * 0.05 }}
-            whileHover={{ y: -5 }}
+            transition={{ delay: (i % 5) * 0.1, duration: 0.5 }}
+            whileHover={{ y: -8, scale: 1.02 }}
           >
-            <div className="client-logo-box" style={{ '--client-color': client.color }}>
-              <span>{client.abbr}</span>
+            <div className="client-logo-box">
+              <img src={client.logo} alt={`${client.name} logo`} className="client-logo-img" />
             </div>
             <p className="client-name">{client.name}</p>
           </motion.div>
@@ -57,7 +60,7 @@ const Clients = () => {
         <div className="marquee-content">
           {[...clients, ...clients].map((client, i) => (
             <div key={i} className="marquee-item">
-              <span className="dot" style={{ background: client.color }}></span>
+              <span className="dot"></span>
               {client.name}
             </div>
           ))}

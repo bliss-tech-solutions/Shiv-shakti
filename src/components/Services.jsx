@@ -49,12 +49,12 @@ const services = [
     description: 'Efficient dewatering solutions to manage groundwater during excavation and construction activities.',
     color: '#ff6b35'
   },
-  {
-    icon: <MdWaterDrop />,
-    title: 'Waterproofing & Seepage Control',
-    description: 'Comprehensive waterproofing and seepage control solutions for long-lasting structural integrity.',
-    color: '#ffa500'
-  },
+  // {
+  //   icon: <MdWaterDrop />,
+  //   title: 'Waterproofing & Seepage Control',
+  //   description: 'Comprehensive waterproofing and seepage control solutions for long-lasting structural integrity.',
+  //   color: '#ffa500'
+  // },
   {
     icon: <FaWrench />,
     title: 'Drilling & Grouting',

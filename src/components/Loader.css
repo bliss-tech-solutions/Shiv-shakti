@@ -1,68 +1,185 @@
+/* ── Container ── */
 .loader-container {
   position: fixed;
   inset: 0;
-  background: var(--primary-color);
+  background: var(--primary-color, #0d0d0d);
   z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.loader-content {
-  text-align: center;
-}
-
-.loader-logo {
-  margin-bottom: 2rem;
-  display: flex;
-  justify-content: center;
-}
-
-.building-icon {
-  display: flex;
-  align-items: flex-end;
-  gap: 8px;
-  height: 60px;
-}
-
-.building-part {
-  width: 12px;
-  background: var(--secondary-color);
-  border-radius: 4px;
-}
-
-.loader-content h2 {
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: white;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.02em;
-}
-
-.loader-content h2 span {
-  color: var(--secondary-color);
-}
-
-.loader-content p {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  margin-bottom: 2.5rem;
-  font-weight: 700;
-}
-
-.loader-bar {
-  width: 240px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 100px;
-  margin: 0 auto;
   overflow: hidden;
+}
+
+/* Subtle noise texture overlay */
+.loader-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+/* Red corner accent */
+.loader-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle at bottom right, rgba(224, 3, 15, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Content ── */
+.loader-content {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  z-index: 1;
+}
+
+/* ── Pulse rings ── */
+.loader-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  pointer-events: none;
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(224, 3, 15, 0.5);
+  transform: translate(-50%, -50%);
+}
+
+.ring-1 {
+  width: 200px;
+  height: 200px;
+}
+
+.ring-2 {
+  width: 260px;
+  height: 260px;
+}
+
+/* ── Logo — clean, no background ── */
+.loader-logo-wrap {
+  width: 160px;
+  height: 150px;
+  margin-bottom: 2rem;
+  position: relative;
+  filter: drop-shadow(0 0 28px rgba(224, 3, 15, 0.25));
+}
+
+.loader-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+    mix-blend-mode: screen; 
+}
+
+/* ── Brand name ── */
+.loader-brand {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  /* color: #ffffff; */
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.brand-shiv {
+  color: #ffffff;
+}
+
+.brand-dot {
+  color: var(--secondary-color, #e0030f);
+  margin: 0 0.1em;
+  font-weight: 400;
+}
+
+.brand-shakti {
+  color: var(--secondary-color, #e0030f);
+}
+
+/* ── Tagline ── */
+.loader-tagline {
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.38em;
+  font-weight: 600;
+  margin-bottom: 2.2rem;
+  margin-top: 0;
+}
+
+/* ── Progress bar ── */
+.loader-bar {
+  width: 200px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1.4rem;
 }
 
 .loader-bar-fill {
   height: 100%;
-  background: var(--secondary-color);
+  background: linear-gradient(90deg, rgba(224, 3, 15, 0.6) 0%, #e0030f 100%);
   border-radius: 100px;
+  position: relative;
+}
+
+.loader-bar-glow {
+  position: absolute;
+  top: -2px;
+  width: 12px;
+  height: 6px;
+  background: #ffffff;
+  border-radius: 100px;
+  filter: blur(3px);
+  transform: translateX(-50%);
+}
+
+/* ── Bouncing dots ── */
+.loader-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-dot {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--secondary-color, #e0030f);
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .loader-logo-wrap {
+    width: 120px;
+    height: 113px;
+  }
+
+  .loader-brand {
+    font-size: 1.2rem;
+  }
+
+  .loader-bar {
+    width: 160px;
+  }
+
+  .ring-1 { width: 160px; height: 160px; }
+  .ring-2 { width: 210px; height: 210px; }
 }

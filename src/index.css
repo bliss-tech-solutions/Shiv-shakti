@@ -1,3 +1,4 @@
+@import "tailwindcss";
 :root {
   font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
   font-synthesis: none;
@@ -7,7 +8,8 @@
   
   /* New Theme Palette */
   --primary-color: #121212; /* Charcoal */
-  --secondary-color: #FF6B00; /* Construction Orange */
+  --secondary-color: #E00410; /* Construction red */
+  /* --secondary-color: #FF6B00; Construction Orange */
   --accent-color: #6C757D; /* Steel Gray */
   --bg-primary: #F1F1F1; /* Light Background */
   --bg-secondary: #FFFFFF; /* Pure White */
@@ -18,7 +20,7 @@
   --text-muted: #666666;
   --text-light: #FFFFFF;
   
-  --accent-gradient: linear-gradient(135deg, #FF6B00 0%, #FF8533 100%);
+  --accent-gradient: linear-gradient(135deg, #E00410 0%, #E00410 100%);
   
   --glass-bg: rgba(18, 18, 18, 0.05);
   --glass-border: rgba(18, 18, 18, 0.1);
@@ -120,7 +122,7 @@ ul {
 }
 
 .btn-primary:hover {
-  background: #E66000;
+  background: #E00410;
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(255, 107, 0, 0.4);
 }

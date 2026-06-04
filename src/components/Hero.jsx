@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import CountUp from 'react-countup'
 import { FaArrowDown } from 'react-icons/fa'
+import { scrollToSection } from '../utils/scrollToSection'
 import heroImage from '../assets/hero.png'
 import './Hero.css'
 
@@ -51,8 +52,18 @@ const Hero = () => {
             modern design and structural integrity with Shiv-Shakti.
           </p>
           <div className="hero-actions">
-            <button className="btn btn-primary">Our Projects</button>
-            <button className="btn btn-secondary">Contact Us</button>
+            <button 
+              className="btn btn-primary"
+              onClick={(e) => scrollToSection(e, '#projects')}
+            >
+              Our Projects
+            </button>
+            <button 
+              className="btn btn-secondary"
+              onClick={(e) => scrollToSection(e, '#contact')}
+            >
+              Contact Us
+            </button>
           </div>
           <div className="hero-stats">
             <div className="stat-item">
@@ -61,7 +72,7 @@ const Hero = () => {
             </div>
             <div className="stat-divider"></div>
             <div className="stat-item">
-              <span className="stat-number">200+</span>
+              <span className="stat-number">300+</span>
               <span className="stat-label">Projects</span>
             </div>
             <div className="stat-divider"></div>

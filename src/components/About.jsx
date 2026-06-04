@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { FaAward, FaUsers, FaCog, FaMapMarkedAlt } from 'react-icons/fa'
+import { scrollToSection } from '../utils/scrollToSection'
 import './About.css'
 
 const features = [
@@ -52,7 +53,13 @@ const About = () => {
               </p>
             </div>
             <div className="about-cta">
-              <a href="#contact" className="btn btn-primary">Learn More About Us</a>
+              <a 
+                href="#contact" 
+                className="btn btn-primary"
+                onClick={(e) => scrollToSection(e, '#contact')}
+              >
+                Learn More About Us
+              </a>
             </div>
           </motion.div>
 
