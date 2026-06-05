@@ -83,26 +83,35 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  padding: 0.5rem;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 0.75rem;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              background 0.4s ease,
+              border-color 0.4s ease;
   position: relative;
+  /* Subtle gradient background so white/light logos stay visible */
+  background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ec 100%);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .client-logo-img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: grayscale(100%) opacity(0.7);
+  /* Removed grayscale so white logos remain visible */
+  filter: opacity(0.85);
   transition: all 0.4s ease;
 }
 
 .client-card:hover .client-logo-img {
-  filter: grayscale(0%) opacity(1);
+  filter: opacity(1);
   transform: scale(1.1);
 }
 
 .client-card:hover .client-logo-box {
   transform: translateY(-5px);
+  background: linear-gradient(135deg, #eeeef2 0%, #dededf 100%);
+  border-color: rgba(255, 107, 0, 0.15);
 }
 
 .client-name {
@@ -245,9 +254,8 @@
   }
 
   .client-logo-box {
-    width: 58px;
-    height: 58px;
-    font-size: 0.8rem;
+    height: 80px;
+    padding: 0.5rem;
   }
 
   .client-name {
@@ -296,9 +304,8 @@
   }
 
   .client-logo-box {
-    width: 54px;
-    height: 54px;
-    font-size: 0.75rem;
+    height: 75px;
+    padding: 0.5rem;
     margin-bottom: 0.85rem;
   }
 
@@ -322,8 +329,7 @@
   }
 
   .client-logo-box {
-    width: 48px;
-    height: 48px;
-    font-size: 0.7rem;
+    height: 65px;
+    padding: 0.4rem;
   }
 }
