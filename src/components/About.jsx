@@ -23,8 +23,8 @@ const features = [
   },
   {
     icon: <FaMapMarkedAlt />,
-    title: '15 States',
-    description: 'Active operations across India in 35+ cities'
+    title: '10+ Cities',
+    description: 'Active operations across India in 10+ cities'
   }
 ]
 
@@ -51,14 +51,14 @@ const About = () => {
                 style={{ scale }}
               />
               <div className="about-image-overlay"></div>
-              <motion.div 
-                className="experience-badge"
-                style={{ y }}
-              >
-                <span className="years">15+</span>
-                <span className="text">Years of Excellence</span>
-              </motion.div>
             </div>
+            <motion.div 
+              className="experience-badge"
+              style={{ y }}
+            >
+              <span className="years">15+</span>
+              <span className="text">Years of Excellence</span>
+            </motion.div>
           </motion.div>
 
           <motion.div

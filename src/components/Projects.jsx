@@ -144,7 +144,7 @@ const clientGroups = [
     category: "Residential",
     color: "#4a148c",
     icon: "🏢",
-    image: "/Images/Sobha Elysia Elevation.jpeg",
+    image: "/Images/Grabbing start p-21.jpeg",
     location: "Gandhinagar, Gujarat",
     projects: [
       {
@@ -162,7 +162,7 @@ const clientGroups = [
     category: "Infrastructure",
     color: "#4a148c",
     icon: "🌉",
-    image: "/Images/Sabarmati Riverfront Subhash Bridge DRA.jpeg",
+   image: "/Images/Cage lifting start Silvassa site.jpeg",
     location: "Ahmedabad, Gujarat",
     projects: [
       {
