@@ -10,7 +10,7 @@ const CountUpComponent = CountUp?.default || CountUp
 
 const stats = [
   { icon: <FaProjectDiagram />, number: 300, suffix: '+', label: 'Projects Completed' },
-  { icon: <FaRoad />, number: 150, suffix: '+', label: 'KM Diaphragm Walls' },
+  { icon: <FaRoad />, number: 15, suffix: '+', label: 'KM Diaphragm Walls' },
   { icon: <FaUsers />, number: 150, suffix: '+', label: 'Team Members' },
   { icon: <FaCity />, number: 10, suffix: '+', label: 'Cities Served' }
 ]
